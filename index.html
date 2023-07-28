@@ -4,13 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanila weather App</title>
-    <link rel="stylesheet" href="src/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+    crossorigin="anonymous">
  
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/style.css">
+<script src="https://kit.fontawesome.com/50f1b5a3b4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Weather App</h1>
-    
-    <script src="src/index.js"></script>
+    <h1 class="head">Weather App</h1>
+    <div class="container">
+        <div class="weather-app">
+            <form id="search-city">
+                <div class="row g-3 search-bar">
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Enter a city" autocomplete="off"
+                            autofocus="on" aria-label="City" id="enter-city" />
+                    </div>
+                    <div class="col-sm">
+                        <button type="submit" class="btn">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        </button>
+                        <button type="click" class="btn" id="actual-location">
+                            <i class="fa-solid fa-location-dot location-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <p class="searched-city">
+                <span class="current-time" id="actual-date-time">Sunday, 19:07
+                </span>
+                <br />
+                <span class="current-city" id="actual-city"> Berlin
+                </span>
+            </p>
+            <h1>
+                <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="current weather"  class="h1-icon" id="h1-icon">
+                <br />
+                <span class="temperature" id="temperature"></span>
+                <span class="units">18<a href="#" id="celcius-link">°C|</a><a href="#" id="fahrenheit-link">°F</a>
+                </span>
+            </h1>
+            <h2 id="description">Sunny</h2>
+
+            <div class="row weather-details">
+                <div class="col-6">
+                    Humidity: <span id="humidity"></span>%
+                </div>
+                <div class="col-6">
+                    Wind: <span id="wind"></span> km/h
+                </div>
+            </div>
+
+            <div class="row future-forecast">
+                <div class="col">
+                    Sun <br />
+                    <p class="sun-icon">☀️</p>
+                    
+                    <strong>28°</strong> 16°
+                </div>
+                <div class="col">
+                    Mon <br />
+                    <p class="clouds-icon" >⛅️</p>
+                   
+                    <strong>28°</strong> 16°
+                </div>
+                <div class="col">
+                    Tue <br />
+                    <p class="cloud-icon" >☁️</p>
+                        
+                    <strong>29°</strong> 18°
+                </div>
+                <div class="col">
+                    Wed <br />
+                    <p class="rain-icon">🌧️</p>
+                    <strong>28°</strong> 17°
+                </div>
+                <div class="col">
+                    Thu <br />
+                    <p class="cloud-icon">☁️</p>
+                    <strong>26°</strong> 15°
+                </div>
+            </div>
+        </div>
+       <p class="coder"><a href="https://github.com/Di-coder7/vanilla-weather-app" target="_blank">Open-sourse code</a> by Daria Doroshenko</p>
+    </div>
+   
 </body>
+<script src="src/index.js"></script>
 </html>
