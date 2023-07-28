@@ -1,5 +1,160 @@
+
+h1,
+h2 {
+  text-align: center;
+  font-family: monospace;
+  text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  color: #00204a;
+}
 h1 {
+  font-size: 35px;
+  
+  
+}
+h2 {
+  line-height: 1.5;
+  font-size: 20px;
+}
+.head {
     font-family: monospace;
-    color: #198754;
+    color: #bc932a;
     text-align: center;
+    margin-top: 10px;
+}
+.weather-app {
+  background-image: url("https://i.ibb.co/Wp1RpQb/cloud-yellow-nature-landscape.jpg"); 
+  background-size: cover;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 100px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+}
+.units {
+    font-size: 35px;
+    text-align: center;
+    padding-left: 30px;
+}
+.search-bar {
+  margin-top: -70px;
+  font-family: monospace;
+  margin-inline: -45px;
+}
+
+.btn {
+  color: #111f4d;
+  border-color: #e4f1fe;
+  font-size: 14px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.searched-city {
+  margin-top: 10px;
+  font-family: monospace;
+  font-size: 17px;
+  font-style: italic;
+  text-align: center;
+  color: black;
+  font-weight: 550;
+}
+.weather-details {
+  border: 2px outset rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+  padding: 12px;
+  margin: 10px auto;
+  max-width: 400px;
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #00204a;
+  
+}
+
+.future-forecast {
+  border: 2px outset rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+  margin-top: 40px;
+  margin-bottom: -50px;
+  margin-inline: -45px;
+  padding: 15px;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  color: black;
+}
+#enter-city {
+  color: black;
+}
+#celcius-link {
+  position: relative;
+  font-family: monospace;
+  text-decoration: none;
+  color: #152744;
+  font-size: 15px;
+  top: -15px;
+
+}
+#celsius-link:visited {
+  text-decoration: none;
+}
+#fahrenheit-link {
+  position: relative;
+  font-family: monospace;
+  text-decoration: none;
+  color: #152744;
+  font-size: 15px;
+  top: -15px;
+  
+}
+#fahrenheit-link:visited {
+  text-decoration: none;
+}
+#description {
+  text-transform: capitalize;
+}
+#coder {
+  text-decoration: none;
+  font-family: monospace;
+}
+#coder-paragraph {
+  text-decoration: none;
+  font-size: 15px;
+  text-align: center;
+  font-family: monospace;
+  margin-top: -30px;
+}
+.location-icon {
+  position: initial;
+}
+.precipitation-icon {
+  width: 20px;
+}
+.humidity-icon {
+  width: 20px;
+}
+.wind-icon {
+  width: 20px;
+}
+.h1-icon {
+  width: 80px;
+}
+.sun-icon,
+.clouds-icon,
+.cloud-icon,
+.rain-icon  {
+  font-size: 40px;
+}
+.coder {
+    font-family: monospace;
+    color: #bc932a;
+    text-align: center;
+    
 }
