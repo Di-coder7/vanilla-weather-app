@@ -11,16 +11,17 @@
  
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css">
-<script src="https://kit.fontawesome.com/50f1b5a3b4.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/50f1b5a3b4.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <h1 class="head">Weather App</h1>
@@ -50,10 +51,9 @@
                 </span>
             </p>
             <h1>
-                <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="current weather"  class="h1-icon" id="h1-icon">
+                <img src="" alt="current weather" class="h1-icon" id="h1-icon">
                 <br />
-                <span class="temperature" id="temperature"></span>
-                <span class="units">18<a href="#" id="celcius-link">°C|</a><a href="#" id="fahrenheit-link">°F</a>
+                <span class="temperature" id="temperature"></span><span class="units"><a href="#" id="celcius-link">°C|</a><a href="#" id="fahrenheit-link">°F</a>
                 </span>
             </h1>
             <h2 id="description">Sunny</h2>
@@ -63,7 +63,7 @@
                     Humidity: <span id="humidity"></span>%
                 </div>
                 <div class="col-6">
-                    Wind: <span id="wind"></span> km/h
+                    Wind: <span id="wind"></span>km/h
                 </div>
             </div>
 
