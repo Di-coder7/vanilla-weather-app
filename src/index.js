@@ -32,7 +32,7 @@ now.innerHTML = formatDate(date);
 
 function displayWeather(response) {
 
-    console.log(response.data.temperature.current);
+    console.log(response.data);
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(response.data.temperature.current);
     let cityElement = document.querySelector("#actual-city");
@@ -45,22 +45,42 @@ function displayWeather(response) {
     windElement.innerHTML = Math.round(response.data.wind.speed);
     let iconElement = document.querySelector("#h1-icon");
     iconElement.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
-    iconElement.setAttribute("alt", response.data.condition.description)
+    iconElement.setAttribute("alt", response.data.condition.description);
 
 }
 
+function search(city) {
+    let apiKey = "dcdf4529bd3tb420ca3d3f41eaod213b";
+    let units = "metric";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(displayWeather);
+    
+}
 
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#enter-city");
+    search(cityInputElement.value);
+    
+}
 
+function searchLocation(position) {
+    let apiKey = "dcdf4529bd3tb420ca3d3f41eaod213b";
+    let units = "metric";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.coordinates.longitude}&lat=${position.coordinates.latitude}&key=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(displayWeather);
+  }
+  
+  function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchLocation);
+  }
+  
 
-let apiKey = "dcdf4529bd3tb420ca3d3f41eaod213b";
-let query = "New York";
-let units = "metric";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=${units}`;
-console.log(apiUrl); 
+let form = document.querySelector("#search-city");
+form.addEventListener("submit", handleSubmit);
 
-axios.get(apiUrl).then(displayWeather);
+let currentLocationButton = document.querySelector("#actual-location");
+  currentLocationButton.addEventListener("click", getCurrentLocation);
 
-
-
-
-
+  search("London");
