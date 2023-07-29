@@ -65,15 +65,18 @@ function handleSubmit(event) {
 }
 
 function searchLocation(position) {
+    console.log(position);
     let apiKey = "dcdf4529bd3tb420ca3d3f41eaod213b";
     let units = "metric";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.coordinates.longitude}&lat=${position.coordinates.latitude}&key=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(displayWeather);
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(search);
+    
   }
   
   function getCurrentLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(searchLocation);
+    console.log(position);
   }
   
 
