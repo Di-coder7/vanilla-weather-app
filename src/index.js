@@ -34,16 +34,18 @@ function displayWeather(response) {
 
     console.log(response.data);
     let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(response.data.temperature.current);
     let cityElement = document.querySelector("#actual-city");
-    cityElement.innerHTML = response.data.city;
     let descriptionElement = document.querySelector("#description");
-    descriptionElement.innerHTML = response.data.condition.description;
     let humidityElement = document.querySelector("#humidity");
-    humidityElement.innerHTML = response.data.temperature.humidity;
     let windElement = document.querySelector("#wind");
-    windElement.innerHTML = Math.round(response.data.wind.speed);
     let iconElement = document.querySelector("#h1-icon");
+
+    celsiusTemperature = response.data.temperature.current
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    cityElement.innerHTML = response.data.city;
+    descriptionElement.innerHTML = response.data.condition.description;
+    humidityElement.innerHTML = response.data.temperature.humidity;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
     iconElement.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
     iconElement.setAttribute("alt", response.data.condition.description);
 
@@ -71,14 +73,30 @@ function searchLocation(position) {
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(search);
     
-  }
+}
   
-  function getCurrentLocation(event) {
+function getCurrentLocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(searchLocation);
     console.log(position);
-  }
-  
+}
+
+function showFahrenheitTemperature(event) {
+    event.preventDefault();
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+}
+function showCelsiusTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+
+}
+
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
@@ -86,4 +104,9 @@ form.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#actual-location");
   currentLocationButton.addEventListener("click", getCurrentLocation);
 
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
   search("London");
