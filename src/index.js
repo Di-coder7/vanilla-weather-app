@@ -28,6 +28,46 @@ function formatDate(date) {
 let now = document.querySelector("#actual-date-time");
 now.innerHTML = formatDate(date);
 
+// replace forecast fron HTML to JS
+
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHTML = `<div class="row">`;
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+    days.forEach(function(day) {
+        forecastHTML = forecastHTML + `
+    
+                    <div class="col-2">
+                        <div class="weather-forecast-date">
+                         ${day}
+                        </div>
+                           <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" 
+                           alt="" 
+                           class="sun-icon" width="50"/>
+                        <div class="weather-forecast-temperature">
+                           <span class="weather-forecast-temperature-max">
+                            28°
+                            </span>
+                           <span class="weather-forecast-temperature-min"> 
+                            16°
+                           </span>
+                      </div>
+                    </div>
+    `;
+    });
+
+    
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+    console.log(forecastHTML); 
+}
+
+
+
+
+
+
+
 // show real weather and city
 
 function displayWeather(response) {
@@ -98,6 +138,7 @@ function showCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
+
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
 
@@ -110,3 +151,4 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
   search("London");
+  displayForecast();

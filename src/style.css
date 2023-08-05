@@ -60,6 +60,9 @@ h2 {
   color: black;
   font-weight: 550;
 }
+.current-city {
+    font-size: 25px;
+}
 .weather-details {
   border: 2px outset rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -77,6 +80,7 @@ h2 {
 
 .future-forecast {
   border: 2px outset rgba(0, 0, 0, 0.8);
+  opacity: initial;
   border-radius: 10px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
   margin-top: 40px;
@@ -134,17 +138,19 @@ h2 {
 .location-icon {
   position: initial;
 }
-.precipitation-icon {
-  width: 20px;
+.weather-forecast-temperature-max {
+    font-size: 18px;
+    font-family: monospace;
 }
-.humidity-icon {
-  width: 20px;
+.weather-forecast-temperature-min {
+    font-size: 18px;
+    font-family: monospace;
+    opacity: 0.5;
 }
-.wind-icon {
-  width: 20px;
-}
+
 .h1-icon {
-  width: 80px;
+  width: 100px;
+  margin-top: -20px;
 }
 .sun-icon,
 .clouds-icon,
