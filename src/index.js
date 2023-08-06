@@ -28,32 +28,46 @@ function formatDate(date) {
 let now = document.querySelector("#actual-date-time");
 now.innerHTML = formatDate(date);
 
+// change time to name of each day
+
+function formatDay(timestamp) {
+let date = new Date(timestamp * 1000);
+let day = date.getDay();
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+return days[day];
+}
+
 // replace forecast fron HTML to JS
 
-function displayForecast() {
+function displayForecast(response) {
+    let forecast = response.data.daily;
+    console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = `<div class="row">`;
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
-    days.forEach(function(day) {
+    
+    forecast.forEach(function(forecastDay, index) {
+        if (index < 6) {
         forecastHTML = forecastHTML + `
     
                     <div class="col-2">
                         <div class="weather-forecast-date">
-                         ${day}
+                         ${formatDay(forecastDay.time)}
                         </div>
-                           <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" 
+                           <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" 
                            alt="" 
                            class="sun-icon" width="50"/>
                         <div class="weather-forecast-temperature">
                            <span class="weather-forecast-temperature-max">
-                            28°
+                            ${Math.round(forecastDay.temperature.maximum)}°
                             </span>
                            <span class="weather-forecast-temperature-min"> 
-                            16°
+                            ${Math.round(forecastDay.temperature.minimum)}°
                            </span>
                       </div>
                     </div>
     `;
+        }
     });
 
     
@@ -62,7 +76,15 @@ function displayForecast() {
     console.log(forecastHTML); 
 }
 
-
+// display 6 days forecast
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "dcdf4529bd3tb420ca3d3f41eaod213b";
+    let units = "metric";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=${units}`;
+    console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+}
 
 
 
@@ -88,6 +110,7 @@ function displayWeather(response) {
     windElement.innerHTML = Math.round(response.data.wind.speed);
     iconElement.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
     iconElement.setAttribute("alt", response.data.condition.description);
+    getForecast(response.data.coordinates);
 
 }
 
@@ -151,4 +174,4 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
   search("London");
-  displayForecast();
+  
